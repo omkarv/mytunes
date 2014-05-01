@@ -7,21 +7,13 @@ var PlayerView = Backbone.View.extend({
         'ended' :  function() {
           this.songEnded();
         }
-
   },
 
   el: '<audio controls autoplay />',
 
-
-
-
-
   initialize: function() {
 
-
   },
-
-
 
   setSong: function(song){
     this.model = song;
@@ -30,7 +22,6 @@ var PlayerView = Backbone.View.extend({
   },
 
   songEnded: function(){
-    console.log('ended');
     this.model.dequeue();
 
   },
@@ -43,7 +34,6 @@ var PlayerView = Backbone.View.extend({
     // console.log('got to unrender');
 
     var audio = $("audio")[0];
-
     audio.pause();
     audio.currentTime=0;
     $("audio").removeAttr("src");

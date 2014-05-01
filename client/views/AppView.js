@@ -15,17 +15,6 @@ var AppView = Backbone.View.extend({
       this.playerView.setSong(model.get('currentSong'));
     }, this);
 
-    this.model.get('songQueue').on('add', function(model){
-      this.songQueueView.render();
-      this.model.get('songQueue').checkQueue();  // if there is only one song in the Queue after adding a song, play that song
-    },this);
-
-    this.model.get('songQueue').on('remove', function(model){
-      //this.songQueueView.render();
-      console.log('AppView event remove listener called');
-      console.log(this.model.get('songQueue'));
-    }, this);
-
   },
 
   render: function(){

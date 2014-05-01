@@ -4,20 +4,19 @@ var SongQueueView = Backbone.View.extend({
 
   tagName: "table",
 
-  // events: {
-  //   'ended' : function(event){console.log('ended', event);}
-  // },
-
-
   initialize: function() {
     this.render();
 
     _.bindAll(this, 'removeSong', 'render');
 
     this.on('ended', function(event){
-      console.log(event);
     },this);//this.at(0).trigger('ended');
     this.collection.on('dequeue', function(song){this.removeSong(song);}, this);
+
+    this.collection.on('add', function(model){
+      this.render();
+    },this);
+
   },
 
   removeSong: function(song){
